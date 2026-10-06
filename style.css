@@ -1,0 +1,70 @@
+/* style.css - PURPOSE: simple custom styling (no frameworks/libraries). */
+
+/* Page background, font, and spacing. */
+body { font-family: Arial, Helvetica, sans-serif; background: #f4f6f8; color: #222; margin: 0; }
+
+/* Centered content column. */
+.container { max-width: 960px; margin: 0 auto; padding: 20px; }
+
+/* Title bar with the "New Task" button on the right. */
+.topbar { display: flex; justify-content: space-between; align-items: center; }
+
+/* Buttons and button-like links. */
+.btn { background: #2563eb; color: #fff; border: 0; padding: 8px 14px; border-radius: 4px;
+       text-decoration: none; cursor: pointer; font-size: 14px; display: inline-block; }
+.btn.secondary { background: #6b7280; }
+.btn.danger    { background: #dc2626; }
+.btn.complete  { background: #15803d; }
+.btn.reopen    { background: #66836b; }
+.btn.small     { padding: 5px 10px; font-size: 13px; }
+
+/* Flash messages (success = green, error = red). */
+.flash { padding: 10px 14px; border-radius: 4px; margin: 12px 0; }
+.flash.success { background: #dcfce7; color: #166534; }
+.flash.error   { background: #fee2e2; color: #991b1b; }
+.flash ul { margin: 0; padding-left: 18px; }
+
+/* Form card. */
+.card { background: #fff; padding: 20px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+.card label { display: block; margin-top: 12px; font-weight: bold; }
+.card input[type=text], .card input[type=date], .card select, .card textarea {
+    width: 100%; padding: 8px; margin-top: 4px; box-sizing: border-box;
+    border: 1px solid #ccc; border-radius: 4px; }
+.card .checkbox { font-weight: normal; }
+.actions { margin-top: 18px; }
+
+/* Search / filter bar and counters. */
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+.filters input, .filters select { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+.summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+.summary-card { display: flex; flex-direction: column; gap: 8px; min-height: 82px; padding: 14px 16px;
+                box-sizing: border-box; border-left: 4px solid; border-radius: 6px; }
+.summary-label { color: #4b5563; font-size: 13px; }
+.summary-value { color: #202a35; font-size: 28px; line-height: 1; }
+.total-card { background: #eaf2ff; border-color: #2563eb; }
+.completed-card { background: #eaf7ed; border-color: #15803d; }
+.remaining-card { background: #fff7e6; border-color: #d97706; }
+.overdue-card { background: #fff0ed; border-color: #dc2626; }
+
+@media (max-width: 700px) {
+    .summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Task table. */
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { padding: 10px; border-bottom: 1px solid #e5e7eb; text-align: left; vertical-align: top; }
+th { background: #e5e7eb; }
+.empty { background: #fff; padding: 20px; text-align: center; border-radius: 6px; }
+
+/* Completed rows are greyed; overdue rows are highlighted (CHALLENGE). */
+tr.done td { color: #888; }
+tr.overdue { background: #fef2f2; }
+.tag { background: #dc2626; color: #fff; font-size: 11px; padding: 2px 6px; border-radius: 3px; margin-left: 6px; }
+
+/* Priority badges. */
+.badge { padding: 2px 8px; border-radius: 10px; font-size: 12px; color: #fff; }
+.badge.low { background: #16a34a; } .badge.medium { background: #d97706; } .badge.high { background: #dc2626; }
+
+/* Edit + Delete buttons sit side by side. */
+.row-actions { white-space: nowrap; }
+.row-actions form { display: inline; }
