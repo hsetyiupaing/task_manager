@@ -8,6 +8,19 @@
  *   $formAction  - URL the form posts to
  *   $submitLabel - text on the submit button
  */
+
+// The including page normally supplies $task. These defaults also make this
+// partial safe for static analysis and for any caller with missing fields.
+$task = array_merge(
+    [
+        'title'       => '',
+        'description' => '',
+        'category'    => 'Assignment',
+        'priority'    => 'Medium',
+        'due_date'    => '',
+    ],
+    isset($task) && is_array($task) ? $task : []
+);
 ?>
 <?php if (!empty($errors)): ?>
     <!-- Show every validation error in a list (loop) -->
